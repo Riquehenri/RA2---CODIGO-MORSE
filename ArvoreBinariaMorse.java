@@ -1,17 +1,16 @@
 
 public class ArvoreBinariaMorse {
     Node raiz;
-
     public ArvoreBinariaMorse() {
         raiz = new Node();
     }
+    // Insere um caractere na árvore com base no código Morse fornecido
     public void inserir(String codigo, char caractere) {
         Node atual = raiz;
         int i = 0;
-
+        // Percorre o código Morse para posicionar o caractere na árvore
         while (i < codigo.length()) {
             char simbolo = codigo.charAt(i);
-
             if (simbolo == '.') {
                 if (atual.left == null) {
                     atual.left = new Node();
@@ -29,13 +28,13 @@ public class ArvoreBinariaMorse {
 
         atual.c = caractere;
     }
+    // Busca o caractere correspondente ao código Morse fornecido
     public char buscar(String codigo) {
         Node atual = raiz;
         int i = 0;
-
+        // Percorre o código Morse para encontrar o caractere na árvore
         while (i < codigo.length()) {
             char simbolo = codigo.charAt(i);
-
             if (simbolo == '.') {
                 if (atual.left == null) return '?';
                 atual = atual.left;
@@ -47,6 +46,7 @@ public class ArvoreBinariaMorse {
         }
         return atual.c;
     }
+    // Busca o código Morse correspondente ao caractere fornecido
     public String buscarCodigo(char letra) {
         String caminho = buscarCodigoRec(raiz, letra, "");
         if (caminho == "") {
@@ -54,7 +54,7 @@ public class ArvoreBinariaMorse {
         }
         return caminho;
     }
-
+    // Função recursiva auxiliar para buscar o código Morse
     private String buscarCodigoRec(Node atual, char letra, String caminho) {
         if (atual == null) {
             return "";
@@ -74,10 +74,11 @@ public class ArvoreBinariaMorse {
 
         return "";
     }
+    // Remove um caractere da árvore com base no código Morse fornecido
     public void remover(String codigo) {
         removerRec(raiz, codigo, 0);
     }
-
+    // Função recursiva auxiliar para remover o caractere
     private void removerRec(Node atual, String codigo, int pos) {
         if (atual == null) return;
 
@@ -94,10 +95,11 @@ public class ArvoreBinariaMorse {
             removerRec(atual.right, codigo, pos + 1);
         }
     }
+    // Exibe a estrutura da árvore de forma hierárquica
     public void exibir() {
         exibirRec(raiz, "");
     }
-
+    // Função recursiva auxiliar para exibir a árvore
     private void exibirRec(Node atual, String prefixo) {
         if (atual != null) {
             System.out.println(prefixo + "(" + atual.c + ")");
@@ -105,6 +107,7 @@ public class ArvoreBinariaMorse {
             exibirRec(atual.right, prefixo + " -");
         }
     }
+    // Inicializa a árvore com o alfabeto Morse padrão
     public void inicializar() {
         inserir(".-", 'A');
         inserir("-...", 'B');

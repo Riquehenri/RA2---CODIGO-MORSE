@@ -4,13 +4,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArvoreBinariaMorse arvore = new ArvoreBinariaMorse();
-
         arvore.inicializar();
-
         int opcao = -1;
-
         System.out.println("=== ÁRVORE BINÁRIA - CÓDIGO MORSE ===");
-
+        // Loop principal do menu
         while (opcao != 0) {
             System.out.println("\n==============================");
             System.out.println("1 - Exibir Árvore");
@@ -21,7 +18,8 @@ public class Main {
             System.out.println("0 - Sair");
             System.out.println("==============================");
             System.out.print("Escolha uma opção: ");
-
+            
+            // Lê a opção do usuário
             String entrada = sc.nextLine();
             if (entrada.length() == 0) continue;
 
@@ -30,11 +28,9 @@ public class Main {
             if (opcao == 1) {
                 System.out.println("\n--- Estrutura da Árvore ---");
                 arvore.exibir();
-
             } else if (opcao == 2) {
-                System.out.print("Digite o código Morse (ex: ... --- ...): ");
+                System.out.print("Digite o código Morse (ex: --- ..): ");
                 String codigo = sc.nextLine();
-
                 int i = 0;
                 String letra = "";
                 String mensagem = "";
@@ -59,11 +55,11 @@ public class Main {
                 System.out.println("Resultado: " + mensagem);
 
             } else if (opcao == 3) {
-                System.out.print("Digite a letra que deseja converter: ");
+                System.out.print("Digite a letra que quer converter: ");
                 String letra = sc.nextLine();
 
                 if (letra.length() == 0) {
-                    System.out.println("Entrada inválida.");
+                    System.out.println("Entrada inválida");
                     continue;
                 }
 
@@ -76,10 +72,9 @@ public class Main {
                 String letra = sc.nextLine();
 
                 if (letra.length() == 0) {
-                    System.out.println("Entrada inválida.");
+                    System.out.println("Entrada inválida");
                     continue;
                 }
-
                 char caractere = letra.charAt(0);
 
                 System.out.print("Digite o código Morse correspondente: ");
@@ -93,12 +88,12 @@ public class Main {
                 String codigo = sc.nextLine();
 
                 arvore.remover(codigo);
-                System.out.println("Remoção concluída (nó limpo).");
+                System.out.println("Remoção concluída (nó limpo)");
 
             } else if (opcao == 0) {
                 System.out.println("Encerrando o programa...");
             } else {
-                System.out.println("Opção inválida.");
+                System.out.println("Opção inválida");
             }
         }
 

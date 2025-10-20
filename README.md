@@ -64,7 +64,7 @@ Possui um menu textual simples e intuitivo que permite:
 3. Buscar código (letra → código Morse)
 4. Inserir novo caractere
 5. Remover caractere
-6. Sair
+0. Sair
 
 ---
 
